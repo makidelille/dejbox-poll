@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Dej box poll</h1>
+
+
+    <div>
+      <h2>liste des dejbox</h2>
+      <table>
+      <% for(var i=0; i< dejbox.length; i++) {%>
+        <tr>
+          <td>
+            <%= dejbox[i].id%>
+          </td>
+          <td>
+            <%= dejbox[i].name%>
+          </td>
+        </tr>
+      <% } %>
+      </table>
+    </div>
+
+
+
+    <% if(selected != undefined) { %> 
+      <h1> Utilisateur selectioné : <%= selected %></h1>
+      <h1> Liste des dejbox : <%= dejbox.map(obj => obj.id).sort().join(', ') %>
+    <% } else { %>
+    
+      <h2>Ajouter sa dejbox</h2>
+      <form action="" method="POST">
+          <input type="hidden" name="redirect" value="/"/>
+          <input type="number" name="dejbox"/>
+          <input type="text" name="name"/>
+          <input type="submit"/>
+      </form>
+
+      <h2>Finir le tirage</h2>
+      <form action="finish" method="POST">
+          <input type="hidden" name="redirect" value="/"/>
+          <input type="submit"/>
+      </form>
+    <% } %>
+
+
+  </body>
+</html>
