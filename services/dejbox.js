@@ -6,7 +6,7 @@ let options = {
     description: 'Event in the dejbox poll',
     language: 'FR',
     pubDate: 'May 20, 2012 04:00:00 GMT',
-    ttl: '60'
+    ttl: '1'
 }
 
 
@@ -25,8 +25,9 @@ class DejBoxService {
         if(!this.isOpen) return false;
 
         feed.item({
-            title:  'Nouvelle dejbox',
+            title:  `La dejbox n°${id} a été commandée`,
             description: `${name} a pris la dejbox ${id}`,
+            author: name,
             date: Date.now(), // any format that js Date can parse.
         });
 
@@ -56,8 +57,9 @@ class DejBoxService {
 
 
         feed.item({
-            title:  'Fin des commande dejbox',
+            title:  `Les commandes à prendre sont : ${listDejbox.join(', ')}`,
             description: `${this.selectedUser} va prendre les dejbox ${listDejbox.join(', ')}`,
+            authro: this.selectedUser,
             date: Date.now(), // any format that js Date can parse.
         });
 
