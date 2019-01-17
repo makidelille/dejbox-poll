@@ -24,12 +24,12 @@ router.post('/', function(req, res, next){
   let name = req.body.name;
   let redirect = req.body.redirect;
 
-  if(dejbox == undefined || name == undefined || isNaN(dejbox) || name.length == 0){
-    throw ({message: "Mauvais param"});
+  if(dejbox == undefined || name == undefined || isNaN(dejbox) || name.length == 0 || dejbox < 0){
+    throw ({message: "Mauvais param", code: 400});
   };
 
   if(!dejboxService.addDejbox(dejbox, name)){
-    throw ({message: "Impossible d'ajouter la dejbox"});
+    throw ({message: "Impossible d'ajouter la dejbox", code: 400});
   }
 
   if(redirect != undefined && redirect.length > 0){
