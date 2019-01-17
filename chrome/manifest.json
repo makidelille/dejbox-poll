@@ -5,7 +5,7 @@
     "permissions": ["storage"],
     "content_scripts": [
         {
-          "matches": ["http://*.dejbox.fr/*", "https://*.dejbox.fr/*"],
+          "matches": ["https://www.dejbox.fr/order_confirmation.jsp?*"],
           "js": ["contentscript.js"]
         }
       ],
