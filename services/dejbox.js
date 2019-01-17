@@ -57,9 +57,9 @@ class DejBoxService {
 
 
         feed.item({
-            title:  `Les commandes à prendre sont : ${listDejbox.join(', ')}`,
-            description: `${this.selectedUser} va prendre les dejbox ${listDejbox.join(', ')}`,
-            authro: this.selectedUser,
+            title:  `Les commandes à prendre sont : ${this.listDejbox().join(', ')}`,
+            description: `${this.selectedUser} va prendre les dejbox ${this.listDejbox().join(', ')}`,
+            author: this.selectedUser,
             date: Date.now(), // any format that js Date can parse.
         });
 
