@@ -4,11 +4,15 @@
     "description": "Extension dejbox",
     "permissions": ["storage"],
     "content_scripts": [
-        {
-          "matches": ["https://www.dejbox.fr/order_confirmation.jsp?*"],
-          "js": ["contentscript.js"]
-        }
-      ],
+      {
+        "matches": ["https://www.dejbox.fr/order_confirmation.jsp?*"],
+        "js": ["contentscript.js"]
+      }
+    ],
+    "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+    },
     "options_page": "options.html",
     "icons": {
         "128": "images/dejboite.png"
